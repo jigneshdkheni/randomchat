@@ -11,7 +11,7 @@ var users = [];
 var connectiondb = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : '12345',
   database : 'chat'
 });
 
@@ -195,4 +195,4 @@ io.on('connection', function(socket){
 	}
 });
 
-http.listen(3002);
+http.listen(8080);
