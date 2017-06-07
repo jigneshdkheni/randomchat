@@ -3,13 +3,15 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mysql   = require('mysql');
+var Random = require("random-js");
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 var users = [];
 
 var connectiondb = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '12345',
+  password : '',
   database : 'chat'
 });
 
