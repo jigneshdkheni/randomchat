@@ -3,23 +3,14 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mysql   = require('mysql');
-var Random = require("random-js");
-var random = new Random(Random.engines.mt19937().autoSeed());
 
 var users = [];
 
-/*var connectiondb = mysql.createConnection({
+var connectiondb = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : '12345',
   database : 'chat'
-});*/
-
-var connectiondb = mysql.createConnection({
-  host     : process.env.RDS_HOSTNAME,
-  user     : process.env.RDS_USERNAME,
-  password : process.env.RDS_PASSWORD,
-  port     : process.env.RDS_PORT
 });
 
 connectiondb.connect(function(err){
